@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CENAS CURTAS OFFCINE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            width: 600px;  
+            height: 700px;
+            text-align: center;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .random-section {
+            margin: 20px 0;
+        }
+
+        .random-section p {
+            font-size: 28px;
+            color: #555;
+            margin: 10px 0;
+            min-height: 50px;
+        }
+
+        button {
+            padding: 15px 25px;
+            font-size: 28px;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>CENAS CURTAS OFFCINE</h1>
+
+    <!-- Seção Local -->
+    <div class="random-section">
+        <h1>Local</h1>
+        <p id="randomLocal">Clique no botão para gerar um local.</p>
+    </div>
+
+    <!-- Seção Sentimento -->
+    <div class="random-section">
+        <h1>Sentimento</h1>
+        <p id="randomSentimento">Clique no botão para gerar um sentimento.</p>
+    </div>
+
+    <!-- Seção Objetivo -->
+    <div class="random-section">
+        <h1>Objetivo</h1>
+        <p id="randomObjetivo">Clique no botão para gerar um objetivo.</p>
+    </div>
+
+    <!-- Botão de Randomização -->
+    <button onclick="randomizarTudo()">Gerar a cena</button>
+</div>
+
+<script>
+    // Arrays de opções
+    const locais = ["ônibus", "Hospital", "Igreja", "Bar", "Presídio", "Velório", "Elevador"];
+    const sentimentos = ["Angústia", "Medo", "inveja", "Tristeza", "Ódio", "Fascinação", "Culpa", "Raiva","Nostalgia"];
+    const objetivos = ["aproximar", "seduzir", "fugir", "Desafiar", "Rejeitar", "Confrontar", "Enganar"
+        
+    ];
+
+    // Função para randomizar com efeito de roleta
+    function randomizarTudo() {
+        roleta('randomLocal', locais);
+        roleta('randomSentimento', sentimentos);
+        roleta('randomObjetivo', objetivos);
+    }
+
+    // Função para animar a roleta de cada elemento
+    function roleta(elementId, array) {
+        const element = document.getElementById(elementId);
+        let contador = 0;
+        let velocidade = 100; // Velocidade inicial
+
+        const intervalo = setInterval(() => {
+            // Atualiza o texto temporariamente
+            element.innerText = array[Math.floor(Math.random() * array.length)];
+            contador++;
+
+            // Aumenta o tempo de troca para criar o efeito de desaceleração
+            if (contador > 20) velocidade += 70;
+
+            // Quando atingir a desaceleração final, para e define o resultado final
+            if (contador > 30) {
+                clearInterval(intervalo);
+                const resultadoFinal = array[Math.floor(Math.random() * array.length)];
+                element.innerText = resultadoFinal;
+            }
+        }, velocidade);
+    }
+</script>
+
+</body>
+</html>

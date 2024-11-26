@@ -1,0 +1,45 @@
+ /* PAGINA PORTIFOLIO  */
+
+ body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+.hero-section {
+    background-color: #007bff;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.project-card {
+    border: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.project-img {
+    height: 20px;
+    width: 10px ;
+    object-fit: cover;
+}
+
+.footer {
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    color: #007bff;
+}
